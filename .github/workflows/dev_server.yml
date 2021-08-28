@@ -33,6 +33,10 @@ jobs:
       run: |
         npm i -g yarn
 
+    - name: Setting up Watchers 🔧
+      run: |
+        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
     - name: Bootstraping project build 🔧
       run: |
         cd js || exit
