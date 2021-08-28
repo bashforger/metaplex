@@ -48,15 +48,7 @@ jobs:
       run: |
         cd js/packages/web || exit
         yarn prestart
-
-    - name: Building project 🔧
-      run: |
-        cd js/packages/web
         CI=false && yarn build
-
-    - name: Exporting build 🔧
-      run: |
-        cd js/packages/web
         yarn export
 
 
@@ -64,7 +56,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
         branch: gh-pages # The branch the action should deploy to.
-        folder: /js/build/web # The folder the action should deploy.
+        folder: js/build/web # The folder the action should deploy.
       
     # - name: Post Corrections 💉
     #   run: |
