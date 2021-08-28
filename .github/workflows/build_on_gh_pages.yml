@@ -38,29 +38,26 @@ jobs:
         cd js || exit
         yarn
         yarn bootstrap
-        pwd
-        ls -a
-        ls packages
-        ls packages/common
 
     - name: Preparing commons 🔧
       run: |
-        cd packages/common || exit
+        cd js/packages/common || exit
         yarn prepare
 
     - name: Prestarting web 🔧
       run: |
-        cd ../web || exit
+        cd js/packages/web || exit
         yarn prestart
 
     - name: Building project 🔧
       run: |
+        cd js/packages/web
         CI=false && yarn build
 
     - name: Exporting build 🔧
       run: |
+        cd js/packages/web
         yarn export
-        cd ../../build/web || exit
 
 
     - name: Deploy 🚀
