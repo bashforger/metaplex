@@ -39,6 +39,9 @@ jobs:
         yarn
         yarn bootstrap
         pwd
+        ls -a
+        ls packages
+        ls packages/common
 
     - name: Preparing commons 🔧
       run: |
