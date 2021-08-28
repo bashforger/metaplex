@@ -38,6 +38,7 @@ jobs:
         cd js || exit
         yarn
         yarn bootstrap
+        pwd
 
     - name: Preparing commons 🔧
       run: |
