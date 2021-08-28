@@ -29,9 +29,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Installing yarn 🔧
+    - name: Installing required packages 🔧
       run: |
         npm i -g yarn
+        npm i -g pm2
 
     - name: Setting up Watchers 🔧
       run: |
@@ -42,4 +43,5 @@ jobs:
         cd js || exit
         yarn
         yarn bootstrap
-        yarn start
+        pm2
+        pm2 start "yarn start"
